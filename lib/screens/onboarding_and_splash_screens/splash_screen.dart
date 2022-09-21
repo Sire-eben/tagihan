@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:tagihan/screens/onboarding_screen.dart';
+import 'package:tagihan/screens/onboarding_and_splash_screens/onboarding_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/gradient.png'),
+                image: AssetImage('assets/images/gradient.png'),
               ),
             ),
           ),
@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  'assets/logo.png',
+                  'assets/images/logo.png',
                   width: 55,
                 ),
                 const SizedBox(width: 10),

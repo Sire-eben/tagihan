@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tagihan/screens/welcome_screen.dart';
+import 'package:tagihan/screens/onboarding_and_splash_screens/welcome_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -32,7 +32,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/gradient.png'),
+                image: AssetImage('assets/images/gradient.png'),
               ),
             ),
           ),
@@ -45,7 +45,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/logo.png',
+                    'assets/images/logo.png',
                     width: 55,
                   ),
                   const SizedBox(width: 10),
@@ -60,7 +60,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ],
               ),
               Image.asset(
-                'assets/mockup1.png',
+                'assets/images/mockup1.png',
                 width: double.maxFinite,
               )
             ],

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tagihan/screens/splash_screen.dart';
+import 'package:tagihan/screens/onboarding_and_splash_screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:tagihan/screens/authentication/get_started_screen.dart';
+import 'package:tagihan/screens/authentication/sign_in_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -17,7 +17,7 @@ class WelcomeScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage('assets/splash2.png'),
+                image: AssetImage('assets/images/splash2.png'),
               ),
             ),
           ),
@@ -30,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/logo.png',
+                    'assets/images/logo.png',
                     width: 55,
                   ),
                   const SizedBox(width: 10),
@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
               Image.asset(
-                'assets/mockup.png',
+                'assets/images/mockup.png',
                 width: double.maxFinite,
               )
             ],
@@ -83,6 +83,8 @@ class WelcomeScreen extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
+
+                  // GET STARTED BUTTON
                   SizedBox(
                     width: double.maxFinite,
                     height: 60,
@@ -91,17 +93,26 @@ class WelcomeScreen extends StatelessWidget {
                         backgroundColor: const Color(0xFF1D1E25),
                         elevation: 1,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignUpScreen(),
+                          ),
+                        );
+                      },
                       child: Text('Get Started'),
                     ),
                   ),
                   SizedBox(
                     height: 20,
                   ),
+
+                  //LOGIN ROW WITH BUTTON
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text(
+                    children: [
+                      const Text(
                         'Have an account? ',
                         style: TextStyle(
                           fontSize: 16,
@@ -109,12 +120,22 @@ class WelcomeScreen extends StatelessWidget {
                           fontWeight: FontWeight.w300,
                         ),
                       ),
-                      Text(
-                        'Login',
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignInScreen(),
+                            ),
+                          );
+                        },
+                        child: const Text(
+                          'Login',
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ],
                   )
