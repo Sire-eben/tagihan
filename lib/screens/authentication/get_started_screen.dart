@@ -91,7 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const TextField(
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.person_2_outlined),
+                  prefixIcon: Icon(Icons.person),
                   hintText: 'Enter your username',
                   labelText: 'Enter your username'),
             ),
