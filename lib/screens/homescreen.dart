@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tagihan/screens/bank_transfer.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -70,14 +71,14 @@ class HomeScreen extends StatelessWidget {
                     ])),
                     const Spacer(),
                     Image.asset('assets/icons/coinpng.png'),
-                    Text('9.500')
+                    const Text('9.500')
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     //Wallet icon
-                    CircleAvatar(
+                    const CircleAvatar(
                       backgroundColor: Colors.black,
                       radius: 32,
                       child: Icon(
@@ -87,7 +88,7 @@ class HomeScreen extends StatelessWidget {
                     ),
 
                     //Transaction icon
-                    CircleAvatar(
+                    const CircleAvatar(
                       backgroundColor: Colors.black,
                       radius: 32,
                       child: Icon(
@@ -97,17 +98,186 @@ class HomeScreen extends StatelessWidget {
                     ),
 
                     //Money icon
-                    CircleAvatar(
-                      backgroundColor: Colors.black,
-                      radius: 32,
-                      child: Icon(
-                        Icons.attach_money_outlined,
-                        color: Colors.white,
+                    GestureDetector(
+                      onTap: () {
+                        showModalBottomSheet(
+                            context: context,
+                            builder: (context) {
+                              return Container(
+                                padding: const EdgeInsets.all(16),
+                                color: Colors.white,
+                                child: Column(
+                                  children: [
+                                    const SizedBox(height: 10),
+                                    Container(
+                                      width: 80,
+                                      height: 7,
+                                      decoration: BoxDecoration(
+                                        color: Colors.blueGrey.shade100,
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 12,
+                                    ),
+                                    const Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text("Top Up Method",
+                                          style: TextStyle(
+                                            fontSize: 22,
+                                            fontWeight: FontWeight.w500,
+                                          )),
+                                    ),
+                                    const SizedBox(height: 30),
+                                    // BANK TRANSFER
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                const SendMoneyPage(),
+                                          ),
+                                        );
+                                      },
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            decoration: const BoxDecoration(
+                                              color: Color(0xFFF7F7F7),
+                                              shape: BoxShape.circle,
+                                            ),
+                                            height: 42,
+                                            width: 42,
+                                            child: const Icon(
+                                                Icons.house_outlined),
+                                          ),
+                                          const SizedBox(width: 20),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: const [
+                                              Text("Bank Transfer",
+                                                  style: TextStyle(
+                                                    fontSize: 17,
+                                                    fontWeight: FontWeight.w500,
+                                                  )),
+                                              Text(
+                                                  "Top up balance via bank transfer",
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w200,
+                                                  )),
+                                            ],
+                                          ),
+                                          const Spacer(),
+                                          const Icon(Icons.arrow_forward_ios)
+                                        ],
+                                      ),
+                                    ),
+
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 22),
+                                      child: Divider(
+                                        thickness: 1,
+                                      ),
+                                    ),
+
+                                    //ALFAMRT
+                                    Row(
+                                      children: [
+                                        Container(
+                                          decoration: const BoxDecoration(
+                                            color: Color(0xFFF7F7F7),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          height: 42,
+                                          width: 42,
+                                          child: const Icon(Icons.store),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: const [
+                                            Text("Alfamrt",
+                                                style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w500,
+                                                )),
+                                            Text(
+                                                "Top up balance via nearby Alfamart",
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w200,
+                                                )),
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                        const Icon(Icons.arrow_forward_ios)
+                                      ],
+                                    ),
+
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(vertical: 22),
+                                      child: Divider(
+                                        thickness: 1,
+                                      ),
+                                    ),
+
+                                    //VIRTUAL ACCOUNT
+                                    Row(
+                                      children: [
+                                        Container(
+                                          decoration: const BoxDecoration(
+                                            color: Color(0xFFF7F7F7),
+                                            shape: BoxShape.circle,
+                                          ),
+                                          height: 42,
+                                          width: 42,
+                                          child: const Icon(Icons.fingerprint),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: const [
+                                            Text("Virtual Account",
+                                                style: TextStyle(
+                                                  fontSize: 17,
+                                                  fontWeight: FontWeight.w500,
+                                                )),
+                                            Text(
+                                                "Confirm automaticaly by 24 hours",
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w200,
+                                                )),
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                        const Icon(Icons.arrow_forward_ios)
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              );
+                            });
+                      },
+                      child: const CircleAvatar(
+                        backgroundColor: Colors.black,
+                        radius: 32,
+                        child: Icon(
+                          Icons.attach_money_outlined,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
 
                     //Scan money
-                    CircleAvatar(
+                    const CircleAvatar(
                       backgroundColor: Colors.black,
                       radius: 32,
                       child: Icon(
@@ -124,7 +294,7 @@ class HomeScreen extends StatelessWidget {
             height: 100,
             width: double.maxFinite,
             // padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.black,
             ),
             child: Row(
@@ -156,7 +326,7 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          GridLayout(),
+          const GridLayout(),
         ],
       ),
     ));
@@ -185,7 +355,7 @@ class GridLayout extends StatelessWidget {
               GridItems(text: 'Water', icon: Icons.water_drop),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
@@ -219,14 +389,14 @@ class GridItems extends StatelessWidget {
     return Column(
       children: [
         CircleAvatar(
-          backgroundColor: Color(0xFFF7F5F5),
+          backgroundColor: const Color(0xFFF7F5F5),
           radius: 32,
           child: Icon(
             icon,
             color: Colors.black87,
           ),
         ),
-        SizedBox(height: 3),
+        const SizedBox(height: 3),
         Text(text)
       ],
     );
